@@ -1,0 +1,585 @@
+---
+import '../styles/global.css';
+
+const currentYear = new Date().getFullYear();
+
+const siteUrl = 'https://trazapublica.com';
+const pageTitle = 'Traza Pública | Seguimiento de trámites y expedientes';
+const pageDescription =
+  'Sistema y servicio para ordenar expedientes, responsables, estatus, documentos e indicadores en áreas jurídicas, administrativas y públicas.';
+const ogImage = `${siteUrl}/og-image.svg`;
+const whatsappUrl = 'https://wa.me/529991445755';
+const calendlyUrl = 'https://calendly.com/seuninversordeltiempo';
+const contactEmail = 'seuninversordeltiempo@gmail.com';
+const formAction = 'https://formspree.io/f/xdarepab';
+
+const painPoints = [
+  'Expedientes duplicados o difíciles de localizar.',
+  'Falta de claridad sobre responsables.',
+  'Reportes manuales que consumen tiempo.',
+  'Historial incompleto de movimientos.',
+  'Pendientes sin seguimiento.',
+  'Información dispersa entre carpetas, correos y hojas de cálculo.',
+];
+
+const features = [
+  'Registro de expedientes y trámites.',
+  'Estatus por caso o trámite.',
+  'Responsables asignados.',
+  'Historial de movimientos.',
+  'Control documental.',
+  'Reportes para dirección.',
+  'Indicadores de avance y rezago.',
+  'Exportación de información.',
+];
+
+const sectors = [
+  {
+    title: 'Ayuntamientos',
+    text: 'Seguimiento de solicitudes, expedientes, oficios, acuerdos, responsables y pendientes por área.',
+  },
+  {
+    title: 'Áreas jurídicas',
+    text: 'Control de expedientes jurídicos, términos, documentos, actuaciones, estatus y reportes internos.',
+  },
+  {
+    title: 'Contralorías',
+    text: 'Trazabilidad documental para revisiones, observaciones, responsables, evidencias y cumplimiento.',
+  },
+  {
+    title: 'Recursos humanos',
+    text: 'Gestión de expedientes laborales, solicitudes, incidencias, documentación y seguimiento administrativo.',
+  },
+  {
+    title: 'Organismos descentralizados',
+    text: 'Orden para trámites, áreas operativas, flujos internos, reportes y control de pendientes administrativos.',
+  },
+  {
+    title: 'Sindicatos',
+    text: 'Seguimiento de afiliados, solicitudes, oficios, acuerdos, documentación y respuestas por responsable.',
+  },
+  {
+    title: 'Despachos jurídicos',
+    text: 'Tableros claros para casos, clientes, expedientes, vencimientos, documentos y avance procesal.',
+  },
+  {
+    title: 'Coordinaciones administrativas',
+    text: 'Control operativo para solicitudes internas, expedientes, reportes, documentos y tareas por área.',
+  },
+];
+
+const benefits = [
+  'Menos expedientes perdidos.',
+  'Mayor trazabilidad.',
+  'Claridad de responsables.',
+  'Historial de movimientos.',
+  'Reportes para dirección.',
+  'Evidencia documental.',
+  'Seguimiento de pendientes.',
+  'Indicadores de rezago y avance.',
+  'Menos dependencia de archivos dispersos.',
+  'Mejor preparación para reuniones, revisiones y auditorías internas.',
+];
+
+const diagnosisItems = [
+  'Revisión del flujo actual.',
+  'Identificación de cuellos de botella.',
+  'Mapeo de responsables y estatus.',
+  'Recomendación de tablero de seguimiento.',
+  'Propuesta inicial de implementación.',
+  'Recomendaciones para ordenar expedientes y reportes.',
+];
+
+const faqs = [
+  {
+    question: '¿Traza Pública es solo un software?',
+    answer:
+      'No. La propuesta inicia con diagnóstico del flujo de trabajo y puede incluir configuración, implementación, capacitación y acompañamiento.',
+  },
+  {
+    question: '¿Sirve si actualmente usamos Excel o Word?',
+    answer:
+      'Sí. Está pensado precisamente para áreas que hoy trabajan con documentos dispersos y necesitan ordenar expedientes, estatus y responsables.',
+  },
+  {
+    question: '¿Se puede adaptar a mi área?',
+    answer:
+      'Sí. Los campos, estatus, reportes y tableros pueden adaptarse según el tipo de trámite o expediente.',
+  },
+  {
+    question: '¿Publican precios?',
+    answer:
+      'No por ahora. Primero se revisa el flujo del área para proponer una solución proporcional a sus necesidades.',
+  },
+  {
+    question: '¿Es una página oficial de gobierno?',
+    answer:
+      'No. Traza Pública es una marca independiente de consultoría y soluciones administrativas. No representa a ninguna dependencia pública.',
+  },
+];
+
+const demoScreens = [
+  {
+    title: 'Dashboard general',
+    text: 'Resumen ejecutivo con indicadores, trámites recientes, estatus y responsables por área.',
+    src: '/mockups/dashboard-general.webp',
+    alt: 'Mockup de dashboard administrativo con indicadores de trámites y expedientes.',
+    featured: true,
+  },
+  {
+    title: 'Lista de expedientes',
+    text: 'Consulta con filtros por área, estatus, fecha, responsable, prioridad y último movimiento.',
+    src: '/mockups/lista-expedientes.webp',
+    alt: 'Mockup de tabla para seguimiento de expedientes administrativos.',
+  },
+  {
+    title: 'Ficha de trámite',
+    text: 'Detalle del expediente con datos generales, responsable, documentos, fechas y pendientes.',
+    src: '/mockups/ficha-tramite.webp',
+    alt: 'Mockup de ficha detallada de un trámite con responsable, estatus y documentos.',
+  },
+  {
+    title: 'Historial',
+    text: 'Línea de tiempo con movimientos, evidencia documental, áreas responsables y cambios de estatus.',
+    src: '/mockups/historial-movimientos.webp',
+    alt: 'Mockup de historial de movimientos para trazabilidad documental.',
+  },
+  {
+    title: 'Reporte PDF',
+    text: 'Vista previa de reporte ejecutivo con indicadores administrativos y observaciones para dirección.',
+    src: '/mockups/vista-previa-reporte.webp',
+    alt: 'Mockup de reporte ejecutivo con indicadores administrativos.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Traza Pública',
+  url: siteUrl,
+  image: ogImage,
+  description: pageDescription,
+  email: contactEmail,
+  areaServed: {
+    '@type': 'Country',
+    name: 'México',
+  },
+  founder: {
+    '@type': 'Person',
+    name: 'Víctor Fuente',
+    jobTitle: 'Consultor en sistemas administrativos, trazabilidad documental e indicadores',
+  },
+  serviceType: [
+    'Seguimiento de trámites',
+    'Gestión de expedientes administrativos',
+    'Trazabilidad documental',
+    'Indicadores administrativos',
+    'Diagnóstico de procesos administrativos',
+  ],
+  sameAs: [],
+};
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta
+      name="keywords"
+      content="sistema de seguimiento de trámites, sistema de expedientes administrativos, control de expedientes jurídicos, seguimiento de trámites municipales, software para áreas jurídicas, trazabilidad documental, control de pendientes administrativos, gestión de expedientes, indicadores administrativos, reportes para dirección"
+    />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#123047" />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_MX" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="Traza Pública, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="/brand/logo-traza-publica.webp" alt="" width="38" height="38" decoding="async" />
+          </span>
+          <span>Traza Pública</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#problema">Problema</a>
+          <a href="#solucion">Solución</a>
+          <a href="#sectores">Sectores</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#diagnostico">Diagnóstico</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <a class="button button-primary header-cta" href="#diagnostico">Solicitar diagnóstico</a>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Seguimiento administrativo con evidencia documental</p>
+            <h1>Orden y trazabilidad para trámites y expedientes</h1>
+            <p class="hero-subtitle">
+              Ayudamos a áreas jurídicas, administrativas y públicas a controlar expedientes, responsables, estatus, documentos e indicadores en un solo sistema claro y trazable.
+            </p>
+            <div class="hero-actions" aria-label="Acciones principales">
+              <a class="button button-primary" href="#diagnostico">Solicitar diagnóstico</a>
+              <a class="button button-secondary" href={calendlyUrl} rel="noopener">Agendar demo</a>
+            </div>
+            <p class="trust-note">
+              Ideal para instituciones y áreas que aún dependen de Word, Excel, libretas, carpetas físicas y mensajes dispersos.
+            </p>
+          </div>
+
+          <div class="hero-panel" aria-label="Mockup de tablero de seguimiento de expedientes">
+            <div class="panel-topbar">
+              <div>
+                <span class="panel-kicker">Tablero general</span>
+                <strong>Seguimiento de trámites</strong>
+              </div>
+              <span class="status-pill status-pill-active">Actualizado hoy</span>
+            </div>
+
+            <div class="metric-grid">
+              <article class="metric-card">
+                <span>Expedientes activos</span>
+                <strong>128</strong>
+                <small>14 con movimiento esta semana</small>
+              </article>
+              <article class="metric-card">
+                <span>Pendientes</span>
+                <strong>36</strong>
+                <small>8 requieren revisión</small>
+              </article>
+              <article class="metric-card metric-card-success">
+                <span>Concluidos</span>
+                <strong>74</strong>
+                <small>Periodo actual</small>
+              </article>
+            </div>
+
+            <div class="progress-block">
+              <div class="progress-heading">
+                <span>Avance administrativo</span>
+                <strong>68%</strong>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <span style="width: 68%"></span>
+              </div>
+            </div>
+
+            <div class="case-list">
+              <div class="case-row">
+                <span class="case-code">EXP-0241</span>
+                <span>Solicitud de revisión</span>
+                <span class="owner">Jurídico</span>
+                <span class="tag tag-warning">Pendiente</span>
+              </div>
+              <div class="case-row">
+                <span class="case-code">EXP-0238</span>
+                <span>Oficio de respuesta</span>
+                <span class="owner">Dirección</span>
+                <span class="tag tag-info">En proceso</span>
+              </div>
+              <div class="case-row">
+                <span class="case-code">EXP-0227</span>
+                <span>Integración documental</span>
+                <span class="owner">Archivo</span>
+                <span class="tag tag-success">Concluido</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problema" class="section section-muted">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">El problema</p>
+            <h2>Cuando los trámites viven en Word, Excel y libretas, el control se pierde</h2>
+            <p>
+              Muchas áreas administrativas trabajan con expedientes dispersos, documentos sueltos, responsables poco claros y reportes manuales. Esto provoca pérdida de información, duplicidad de registros, retrasos, poca trazabilidad y dificultad para saber qué está pendiente, quién lo tiene y en qué estado se encuentra.
+            </p>
+          </div>
+
+          <div class="card-grid three-columns">
+            {painPoints.map((item) => (
+              <article class="info-card pain-card">
+                <span class="card-bullet" aria-hidden="true"></span>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="solucion" class="section">
+        <div class="container two-column">
+          <div class="section-heading align-left">
+            <p class="eyebrow">La solución</p>
+            <h2>Un sistema claro para ordenar expedientes, responsables, estatus e indicadores</h2>
+            <p>
+              Traza Pública permite organizar trámites y expedientes con historial, estatus, responsables, documentos, reportes e indicadores para mejorar el seguimiento administrativo y facilitar la toma de decisiones.
+            </p>
+            <p>
+              La prioridad no es vender software complejo: es crear orden, control y trazabilidad documental donde hoy hay registros dispersos.
+            </p>
+            <a class="button button-primary" href="#contacto">Agendar demo</a>
+          </div>
+
+          <div class="feature-list" aria-label="Funcionalidades principales">
+            {features.map((feature) => (
+              <article class="feature-item">
+                <span class="checkmark" aria-hidden="true"></span>
+                <p>{feature}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="sectores" class="section section-muted">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Para quién es</p>
+            <h2>Diseñado para áreas que necesitan control administrativo y evidencia documental</h2>
+            <p>
+              Útil para equipos que requieren seguimiento de trámites municipales, gestión de expedientes, control documental y reportes para dirección sin depender de archivos aislados.
+            </p>
+          </div>
+
+          <div class="card-grid four-columns">
+            {sectors.map((sector) => (
+              <article class="info-card sector-card">
+                <h3>{sector.title}</h3>
+                <p>{sector.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Beneficios</p>
+            <h2>No se trata solo de digitalizar: se trata de tener control</h2>
+            <p>
+              Un sistema de expedientes administrativos debe ayudar a ver pendientes, responsables, documentos e indicadores administrativos con claridad suficiente para actuar.
+            </p>
+          </div>
+
+          <div class="benefit-grid">
+            {benefits.map((benefit) => (
+              <article class="benefit-card">
+                <span class="checkmark" aria-hidden="true"></span>
+                <p>{benefit}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="demostracion" class="section section-contrast">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow eyebrow-light">Demostración visual</p>
+            <h2>Visualiza el estado de tus trámites en un solo lugar</h2>
+            <p>
+              Las pantallas pueden adaptarse al flujo de trabajo de cada área.
+            </p>
+          </div>
+
+          <div class="mockup-grid" aria-label="Capturas del sistema con datos ficticios">
+            {demoScreens.map((screen) => (
+              <figure class:list={['demo-card', screen.featured && 'demo-card-featured']}>
+                <figcaption class="demo-card-copy">
+                  <h3>{screen.title}</h3>
+                  <p>{screen.text}</p>
+                </figcaption>
+                <div class="demo-image-shell">
+                  <img
+                    src={screen.src}
+                    alt={screen.alt}
+                    width="1586"
+                    height="992"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="diagnostico" class="section section-accent">
+        <div class="container diagnosis-grid">
+          <div class="section-heading align-left">
+            <p class="eyebrow">Oferta inicial</p>
+            <h2>Diagnóstico inicial para áreas con trámites dispersos</h2>
+            <p>
+              Antes de implementar una solución, revisamos cómo trabaja actualmente el área: qué documentos usa, cómo registra sus expedientes, cómo da seguimiento a responsables, qué reportes necesita y dónde se generan los principales cuellos de botella.
+            </p>
+            <a class="button button-primary" href="#contacto">Solicitar diagnóstico</a>
+          </div>
+
+          <div class="diagnosis-card">
+            <h3>El diagnóstico puede incluir:</h3>
+            <ul class="clean-list">
+              {diagnosisItems.map((item) => (
+                <li>
+                  <span class="checkmark" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="confianza" class="section">
+        <div class="container trust-grid">
+          <div class="section-heading align-left">
+            <p class="eyebrow">Confianza</p>
+            <h2>Experiencia técnica aplicada a procesos administrativos reales</h2>
+            <p>
+              Traza Pública es desarrollado por un perfil técnico con experiencia en sistemas administrativos, bases de datos, indicadores, reportes, control documental y seguimiento de procesos en entornos institucionales.
+            </p>
+          </div>
+
+          <article class="profile-card" aria-label="Perfil profesional de Víctor Fuente">
+            <img
+              class="profile-photo"
+              src="/profile/victor-fuente.webp"
+              alt="Retrato profesional de Víctor Fuente"
+              width="112"
+              height="112"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <h3>Víctor Fuente</h3>
+              <p class="profile-role">Consultor en sistemas administrativos, trazabilidad documental e indicadores.</p>
+              <p>
+                Desarrollo soluciones para ordenar información, dar seguimiento a expedientes y convertir procesos dispersos en tableros claros de control.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section section-muted">
+        <div class="container faq-layout">
+          <div class="section-heading align-left">
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2>Respuestas directas antes de una reunión</h2>
+          </div>
+
+          <div class="faq-list">
+            {faqs.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section contact-section">
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow">Contacto</p>
+            <h2>Hablemos sobre cómo ordenar tus trámites y expedientes</h2>
+            <p>
+              Comparte el contexto de tu área y revisamos si conviene iniciar con un diagnóstico, una demo o una propuesta de implementación gradual.
+            </p>
+
+            <div class="contact-actions" aria-label="Canales de contacto">
+              <a class="button button-primary" href={whatsappUrl} rel="noopener">WhatsApp</a>
+              <a class="button button-secondary" href={calendlyUrl} rel="noopener">Agendar cita</a>
+              <a class="button button-secondary" href={`mailto:${contactEmail}`}>Enviar correo</a>
+            </div>
+          </div>
+
+          <form class="contact-form" action={formAction} method="POST">
+            <input type="hidden" name="_subject" value="Nueva solicitud desde Traza Pública" />
+            <div class="form-row">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Nombre completo" required />
+            </div>
+            <div class="form-row">
+              <label for="institucion">Institución o área</label>
+              <input id="institucion" name="institucion" type="text" autocomplete="organization" placeholder="Área, institución o despacho" required />
+            </div>
+            <div class="form-row split">
+              <div>
+                <label for="correo">Correo</label>
+                <input id="correo" name="email" type="email" autocomplete="email" placeholder="correo@dominio.com" required />
+              </div>
+              <div>
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="+52" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="message" rows="5" placeholder="Cuéntanos qué trámites, expedientes o reportes necesitas ordenar" required></textarea>
+            </div>
+            <button class="button button-primary form-submit" type="submit">Enviar solicitud</button>
+            <p class="form-note">Tus datos se enviarán a través de Formspree para dar seguimiento a tu solicitud.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#inicio" aria-label="Traza Pública, inicio">
+            <span class="brand-mark" aria-hidden="true">
+              <img src="/brand/logo-traza-publica.webp" alt="" width="38" height="38" loading="lazy" decoding="async" />
+            </span>
+            <span>Traza Pública</span>
+          </a>
+          <p>Orden y trazabilidad para trámites y expedientes</p>
+          <p class="independent-note">Marca independiente. No representa a ninguna dependencia pública.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+          <a href="#problema">Problema</a>
+          <a href="#solucion">Solución</a>
+          <a href="#sectores">Sectores</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#diagnostico">Diagnóstico</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <p class="copyright">© {currentYear} Traza Pública.</p>
+      </div>
+    </footer>
+  </body>
+</html>

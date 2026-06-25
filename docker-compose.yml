@@ -1,0 +1,10 @@
+services:
+  traza-publica-landing:
+    build: .
+    container_name: traza-publica-landing
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev:docker
